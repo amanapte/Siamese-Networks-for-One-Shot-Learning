@@ -383,11 +383,11 @@ class OmniglotLoader:
         # Set some variables that depend on dataset
         if is_validation:
             alphabets = self._validation_alphabets
-            if (n_i%2000==0):
+            if (n_i <= 10 || n_i%2000==0):
                 print('\nMaking One Shot Task on validation alphabets:')
         else:
             alphabets = self._evaluation_alphabets
-            if (n_i%2000==0):
+            if (n_i <= 10 || n_i%2000==0):
                 print('\nMaking One Shot Task on evaluation alphabets:')
 
         mean_global_accuracy = 0
@@ -412,7 +412,7 @@ class OmniglotLoader:
 
             mean_alphabet_accuracy /= number_of_tasks_per_alphabet
 
-            if (n_i%2000==0):
+            if (n_i <= 10 || n_i%2000==0):
                 print(alphabet + ' alphabet' + ', accuracy: ' +
                   str(mean_alphabet_accuracy))
             if is_validation:
