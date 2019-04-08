@@ -250,7 +250,7 @@ class SiameseNetwork:
 
             # validation set
             count += 1
-            if (iteration%2000==0):
+            if (iteration <= 10 || iteration%2000==0):
                 print('Iteration %d/%d: Train loss: %f, Train Accuracy: %f, lr = %f' %
                     (iteration + 1, number_of_iterations, train_loss, train_accuracy, K.get_value(
                         self.model.optimizer.lr)))
