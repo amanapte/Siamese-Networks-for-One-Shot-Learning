@@ -250,14 +250,15 @@ class SiameseNetwork:
 
             # validation set
             count += 1
-            sys.stdout.write('\r'+str('Iteration %d/%d: Train loss: %f, Train Accuracy: %f, lr = %f' %
-                    (iteration + 1, number_of_iterations, train_loss, train_accuracy, K.get_value(
-                        self.model.optimizer.lr))))
+            
             if (iteration <= 10 or iteration%2000==0):
                 print('Iteration %d/%d: Train loss: %f, Train Accuracy: %f, lr = %f' %
                     (iteration + 1, number_of_iterations, train_loss, train_accuracy, K.get_value(
                         self.model.optimizer.lr)))
-
+            else:
+                sys.stdout.write('\r'+str('Iteration %d/%d: Train loss: %f, Train Accuracy: %f, lr = %f' %
+                    (iteration + 1, number_of_iterations, train_loss, train_accuracy, K.get_value(
+                        self.model.optimizer.lr))))
             # Each 100 iterations perform a one_shot_task and write to tensorboard the
             # stored losses and accuracies
             if (iteration + 1) % evaluate_each == 0:
