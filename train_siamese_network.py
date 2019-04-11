@@ -6,8 +6,8 @@ def main():
     use_augmentation = True
     learning_rate = 10e-4
     
-    batch_size = 128
-    #batch_size = 256
+    #batch_size = 128
+    batch_size = 256
     # Learning Rate multipliers for each layer
     learning_rate_multipliers = {}
     learning_rate_multipliers['Conv1'] = 1
@@ -39,8 +39,8 @@ def main():
     support_set_size = 20
     evaluate_each = 1000
     
-    number_of_train_iterations = 250000
-    #number_of_train_iterations = 125000
+    #number_of_train_iterations = 250000
+    number_of_train_iterations = 125000
 
     validation_accuracy = siamese_network.train_siamese_network(number_of_iterations=number_of_train_iterations,
                                                                 support_set_size=support_set_size,
